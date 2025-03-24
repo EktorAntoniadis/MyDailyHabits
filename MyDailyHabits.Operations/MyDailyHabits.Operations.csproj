@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyDailyHabits.Data\MyDailyHabits.Data.csproj" />
+  </ItemGroup>
+
 </Project>
