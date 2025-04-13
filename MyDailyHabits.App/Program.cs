@@ -1,3 +1,9 @@
+
+using Microsoft.EntityFrameworkCore;
+using MyDailyHabits.Data.Models;
+using MyDailyHabits.Operations.Implementations;
+using MyDailyHabits.Operations.Interfaces;
+
 namespace MyDailyHabits.App
 {
     public class Program
@@ -8,6 +14,10 @@ namespace MyDailyHabits.App
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<MyDailyHabitsContext>(options => options.UseSqlite("Data Source=mydailyhabits.db"));
+
+            builder.Services.AddScoped<IHabitRepository, HabitRepository>();
 
             var app = builder.Build();
 
