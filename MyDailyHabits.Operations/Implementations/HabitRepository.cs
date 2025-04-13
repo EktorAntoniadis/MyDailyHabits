@@ -1,8 +1,9 @@
-﻿using MyDailyHabit.Operations.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
 using MyDailyHabits.Data.Models;
+using MyDailyHabits.Operations.Interfaces;
 using MyDailyHabits.Operations.Pagination;
 
-namespace MyDailyHabit.Operations.Implementations
+namespace MyDailyHabits.Operations.Implementations
 {
     public class HabitRepository : IHabitRepository
     {
@@ -77,24 +78,70 @@ namespace MyDailyHabit.Operations.Implementations
             _context.SaveChanges();
         }
 
-        public PaginatedList<Habit> GetHabits(int pageIndex, int pageSize, string? title = null, DateTime? startDaate = null, DateTime? endDate = null, string? sortColumn = "title", string? sortDirection = "asc")
+        public PaginatedList<Habit> GetHabits(
+            int pageIndex, 
+            int pageSize, 
+            string? title = null, 
+            DateTime? startDate = null, 
+            DateTime? endDate = null, 
+            string? sortColumn = "Title", 
+            string? sortDirection = "asc")
         {
-            throw new NotImplementedException();
+            var query = _context.Habits
+                .Include(x => x.User)
+                .Include(x=>x.Logs)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                query = query.Where(x => x.Title.Contains(title));
+            }
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(x => x.StartDate >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(x => x.EndDate <= endDate.Value);
+            }
+
+            switch (sortColumn?.ToLower())
+            {
+                case "StartDate":
+                    query = sortDirection == "desc" ? query.OrderByDescending(x => x.StartDate) : query.OrderBy(x => x.StartDate);
+                    break;
+                case "EndDate":
+                    query = sortDirection == "desc" ? query.OrderByDescending(x => x.EndDate) : query.OrderBy(x => x.EndDate);
+                    break;
+                case "Title":
+                default:
+                    query = sortDirection == "desc" ? query.OrderByDescending(x => x.Title) : query.OrderBy(x => x.Title);
+                    break;
+            }
+
+            var totalRecords = query.Count();
+            var habits = query.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
+            return new PaginatedList<Habit>(habits, totalRecords, pageIndex, pageSize);
         }
 
         public IEnumerable<Reminder> GetReminders()
         {
-            throw new NotImplementedException();
+            return _context.Reminders.Include(x=>x.Habit).ToList();
         }
 
         public Streak? GetStreakById(int id)
         {
-            throw new NotImplementedException();
+            var streak = _context.Streaks.Find(id);
+            return streak;
         }
 
         public void UpdateStreak(Streak streak)
         {
-            throw new NotImplementedException();
+            _context.Streaks.Update(streak);
+            _context.SaveChanges();
         }
     }
 }
