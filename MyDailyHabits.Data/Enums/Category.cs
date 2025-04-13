@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyDailyHabits.Data.Enums;
 
-public enum Frequency
+public enum Category
 {
-    Daily = 0,
-    Weekly = 1,
-    Monthly = 2,
+    Chores = 1,
+    Cooking = 2,
+    Friends = 3,
+    Health = 4,
+    Hobby = 5,
+    Music = 6,
+    Fitness = 7,
+    Other = 8
 }

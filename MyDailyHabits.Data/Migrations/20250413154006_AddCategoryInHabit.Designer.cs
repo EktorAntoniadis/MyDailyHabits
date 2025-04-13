@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDailyHabits.Data.Models;
 
@@ -10,9 +11,11 @@ using MyDailyHabits.Data.Models;
 namespace MyDailyHabits.Data.Migrations
 {
     [DbContext(typeof(MyDailyHabitsContext))]
-    partial class MyDailyHabitsContextModelSnapshot : ModelSnapshot
+    [Migration("20250413154006_AddCategoryInHabit")]
+    partial class AddCategoryInHabit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.15");

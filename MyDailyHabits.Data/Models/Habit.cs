@@ -20,5 +20,6 @@ public class Habit
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public Frequency Frequency { get; set; }
+    public Category Category { get; set; }
     public List<HabitLog> Logs { get; set; }
 }
