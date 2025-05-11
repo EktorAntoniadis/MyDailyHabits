@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyDailyHabits.Data.Enums;
 using MyDailyHabits.Data.Models;
 using MyDailyHabits.Operations.Interfaces;
 using MyDailyHabits.Operations.Pagination;
@@ -77,7 +78,6 @@ namespace MyDailyHabits.Operations.Implementations
             _context.Achievements.Add(achievement);
             _context.SaveChanges();
         }
-
         public PaginatedList<Habit> GetHabits(
             int pageIndex, 
             int pageSize, 
@@ -142,6 +142,38 @@ namespace MyDailyHabits.Operations.Implementations
         {
             _context.Streaks.Update(streak);
             _context.SaveChanges();
+        }
+
+        public Achievement? GetAchievementById(int id)
+        {
+            var achievement = _context.Achievements.Find(id);
+            return achievement;
+        }
+
+        public void UpdateAchievement(Achievement achievement)
+        {
+            _context.Achievements.Update(achievement);
+            _context.SaveChanges();
+        }
+
+        public IEnumerable<Achievement> GetAchievements()
+        {
+            return _context.Achievements.ToList();
+        }
+
+        public void DeleteStreak(int id)
+        {
+            var streak = GetStreakById(id);
+            if (streak != null)
+            {
+                _context.Streaks.Remove(streak);
+                _context.SaveChanges();
+            }
+        }
+
+        public IEnumerable<Streak> GetStreaks()
+        {
+            return _context.Streaks.ToList();
         }
     }
 }

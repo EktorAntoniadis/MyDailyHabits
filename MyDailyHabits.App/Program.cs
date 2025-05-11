@@ -18,6 +18,7 @@ namespace MyDailyHabits.App
             builder.Services.AddDbContext<MyDailyHabitsContext>(options => options.UseSqlite("Data Source=mydailyhabits.db"));
 
             builder.Services.AddScoped<IHabitRepository, HabitRepository>();
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 
