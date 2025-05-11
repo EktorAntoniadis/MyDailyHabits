@@ -30,10 +30,30 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Render the sidebar if the page defines it -->
+            @if (IsSectionDefined("HabitSideBar"))
+            {
+                <div class="col-md-3 col-lg-2 p-0">
+                    @RenderSection("HabitSideBar", required: false)
+                </div>
+                <div class="col-md-9 col-lg-10 p-4">
+                    <main role="main" class="">
+                        @RenderBody()
+                    </main>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12 col-lg-12 p-4">
+                    <main role="main" class="">
+                        @RenderBody()
+                    </main>
+                </div>
+            }
+
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">

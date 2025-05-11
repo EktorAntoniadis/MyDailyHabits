@@ -1,0 +1,13 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<nav id="admin-sidebar" class="sidebar d-flex flex-column p-3 bg-body-tertiary border-end bg-light collapse" style="height: 100vh;">
+    <div class="position-sticky pt-3">
+        <h4 class="">Habits Panel</h4>
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item"><a class="nav-link text-dark link-body-emphasis" asp-page="/Habits/Index">Habits</a></li>
+            <li class="nav-item"><a class="nav-link text-dark link-body-emphasis" asp-page="/Achievements/Index">Achievements</a></li>
+            <li class="nav-item"><a class="nav-link text-dark link-body-emphasis" asp-page="/Reminders/Index">Reminders</a></li>
+            <li class="nav-item"><a class="nav-link text-dark link-body-emphasis" asp-page="/Streaks/Index">Streaks</a></li>
+        </ul>
+    </div>
+</nav>

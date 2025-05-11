@@ -2,9 +2,42 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+<header class="bg-primary text-white text-center py-5">
+    <h1>Welcome to HappyHabits</h1>
+    <p>Your journey to self-improvement starts today.</p>
+</header>
+
+<main class="container my-5">
+    <section class="text-center mb-5">
+        <h2>What is HappyHabits?</h2>
+        <p class="lead">A simple and effective habit tracker that helps you stay consistent and celebrate small wins every day.</p>
+    </section>
+    <section class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>Track Your Progress</h3>
+                <p>Monitor your daily habits with ease and never lose sight of your goals.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>Stay Motivated</h3>
+                <p>Earn streaks and achievements to keep yourself accountable.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm p-4">
+                <h3>Celebrate Small Wins</h3>
+                <p>Every little step counts. Build better habits one day at a time.</p>
+            </div>
+        </div>
+    </section>
+</main>
