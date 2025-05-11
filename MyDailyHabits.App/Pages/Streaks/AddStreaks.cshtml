@@ -1,0 +1,31 @@
+﻿@page
+@model MyDailyHabits.Pages.Streaks.AddStreaksModel
+@{
+    ViewData["Title"] = "Add Streak";
+}
+
+<h2>Add New Streak</h2>
+
+<form method="post" asp-page-handler="AddNewStreak">
+
+
+    <input type="hidden" asp-for="NewStreak.HabitId" class="form-control" />
+
+    <div class="form-group">
+        <label asp-for="NewStreak.CurrentStreak" class="form-label"></label>
+        <input asp-for="NewStreak.CurrentStreak" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewStreak.LongestStreak" class="form-label"></label>
+        <input asp-for="NewStreak.LongestStreak" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewStreak.LastCompletedDate" class="form-label"></label>
+        <input asp-for="NewStreak.LastCompletedDate" type="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Streak</button>
+    <a class="btn btn-secondary" asp-page="/Streaks/Index">Back</a>
+</form>

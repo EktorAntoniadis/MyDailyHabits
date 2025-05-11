@@ -1,0 +1,27 @@
+﻿@page "{id:int}"
+@model MyDailyHabits.Pages.Streaks.ViewStreaksModel
+@{
+    ViewData["Title"] = "View Streak";
+}
+
+<h2>Streak Details</h2>
+
+<div class="card p-3 shadow-sm">
+    <dl class="row">
+        <dt class="col-sm-3">Habit ID</dt>
+        <dd class="col-sm-9">@Model.Streak.HabitId</dd>
+
+        <dt class="col-sm-3">Current Streak</dt>
+        <dd class="col-sm-9">@Model.Streak.CurrentStreak</dd>
+
+        <dt class="col-sm-3">Longest Streak</dt>
+        <dd class="col-sm-9">@Model.Streak.LongestStreak</dd>
+
+        <dt class="col-sm-3">Last Completed</dt>
+        <dd class="col-sm-9">@Model.Streak.LastCompletedDate?.ToString("yyyy-MM-dd")</dd>
+    </dl>
+
+    <a asp-page="/Streaks/EditStreaks" asp-route-id="@Model.Streak.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="/Streaks/DeleteStreaks" asp-route-id="@Model.Streak.Id" class="btn btn-danger">Delete</a>
+    <a asp-page="/Streaks/Index" class="btn btn-secondary">Back to List</a>
+</div>

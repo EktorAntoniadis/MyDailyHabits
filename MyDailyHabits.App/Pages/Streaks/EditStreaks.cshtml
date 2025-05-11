@@ -1,0 +1,31 @@
+﻿@page "{id:int}"
+@model MyDailyHabits.Pages.Streaks.EditStreaksModel
+@{
+    ViewData["Title"] = "Edit Streak";
+}
+
+<h2>Edit Streak</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Streak.Id" />    
+        <input type="hidden" asp-for="Streak.HabitId" class="form-control" />
+    
+
+    <div class="form-group">
+        <label asp-for="Streak.CurrentStreak" class="form-label"></label>
+        <input asp-for="Streak.CurrentStreak" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Streak.LongestStreak" class="form-label"></label>
+        <input asp-for="Streak.LongestStreak" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Streak.LastCompletedDate" class="form-label"></label>
+        <input asp-for="Streak.LastCompletedDate" type="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="/Streaks/Index" class="btn btn-secondary">Cancel</a>
+</form>

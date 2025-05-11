@@ -1,0 +1,36 @@
+﻿@page
+@model MyDailyHabits.App.Pages.Streaks.IndexModel
+@{
+}
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+<table class="table table-light table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Habit</th>
+            <th>Current Streak</th>
+            <th>Longest Streak</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var streak in Model.Streaks)
+        {
+            <tr>
+                <td>@streak.Id</td>
+                <td>@streak.Habit</td>
+                <td>@streak.CurrentStreak</td>
+                <td>@streak.LongestStreak</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-warning" asp-page="/Streaks/EditStreak" asp-route-id="@streak.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Streaks/DeleteStreak" asp-route-id="@streak.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
