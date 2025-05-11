@@ -1,0 +1,27 @@
+﻿@page
+@using MyDailyHabits.Data.Enums
+@model MyDailyHabits.App.Pages.Reminders.AddRemindersModel
+@{
+    ViewData["Title"] = "Add Reminder";
+}
+
+<h2>Add a New Reminder</h2>
+
+<form method="post" asp-page-handler="AddNewReminder">
+ <input type="hidden" asp-for="AddReminder.UserId" />
+
+    <div class="form-group">
+        <label asp-for="AddReminder.Time" class="form-label"></label>
+        <input asp-for="AddReminder.Time" type="time" class="form-control" />
+        <span asp-validation-for="AddReminder.Time" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddReminder.RepeatDays" class="form-label"></label>
+        <input asp-for="AddReminder.RepeatDays" type="text" class="form-control" />
+        <span asp-validation-for="AddReminder.RepeatDays" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Reminder</button>
+    <a class="btn btn-secondary" asp-page="/Reminders/Index">Back</a>
+</form>

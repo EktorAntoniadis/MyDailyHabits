@@ -1,0 +1,31 @@
+﻿@page
+@using MyDailyHabits.Data.Enums
+@model MyDailyHabits.App.Pages.Reminders.EditRemindersModel
+@{
+    ViewData["Title"] = "Edit Reminder";
+}
+
+@section AdminSideBar {
+    <partial name="Administration/_AdminSidebar" />
+}
+
+<form method="post" asp-page-handler="UpdateReminder">
+    <input type="hidden" asp-for="EditReminder.UserId" />
+    <input type="hidden" asp-for="EditReminder.Id" />
+    <input type="hidden" asp-for="EditReminder.HabitId" />
+
+    <div class="form-group">
+        <label asp-for="EditReminder.Time" class="form-label"></label>
+        <input asp-for="EditReminder.Time" class="form-control" />
+        <span asp-validation-for="EditReminder.Time" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditReminder.RepeatDays" class="form-label"></label>
+        <input asp-for="EditReminder.RepeatDays" type="text" class="form-control" />
+        <span asp-validation-for="EditReminder.RepeatDays" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">EditReminder</button>
+    <a class="btn btn-secondary" asp-page="/Reminder/Index">Back</a>
+</form>

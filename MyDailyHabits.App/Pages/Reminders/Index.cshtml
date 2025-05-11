@@ -2,3 +2,33 @@
 @model MyDailyHabits.App.Pages.Reminders.IndexModel
 @{
 }
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+<table class="table table-light table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Time</th>
+            <th>RepeatDays</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reminder in @Model.Reminders)
+        {
+            <tr>
+                <td>@reminder.Id</td>
+                <td>@reminder.Time</td>
+                <td>@reminder.RepeatDays</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-warning" asp-page="/Reminders/EditReminder" asp-route-id="@reminder.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Reminders/DeleteReminder" asp-route-id="@reminder.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
