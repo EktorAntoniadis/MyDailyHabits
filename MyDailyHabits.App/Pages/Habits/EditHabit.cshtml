@@ -1,0 +1,45 @@
+﻿@page
+@using MyDailyHabits.Data.Enums
+@model MyDailyHabits.App.Pages.Habits.EditModel
+@{
+    ViewData["Title"] = "Edit Habit";
+}
+
+@section AdminSideBar {
+    <partial name="Administration/_AdminSidebar" />
+}
+
+<form method="post" asp-page-handler="UpdateHabit">
+    <div class="form-group">
+        <label asp-for="EditHabit.Title" class="form-label"></label>
+        <input asp-for="EditHabit.Title" class="form-control" />
+        <span asp-validation-for="EditHabit.Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditHabit.Description" class="form-label"></label>
+        <textarea asp-for="EditHabit.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditHabit.StartDate" class="form-label"></label>
+        <input asp-for="EditHabit.StartDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditHabit.EndDate" class="form-label"></label>
+        <input asp-for="EditHabit.EndDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditHabit.Frequency" class="form-label"></label>
+        <select asp-for="EditHabit.Frequency" asp-items="Html.GetEnumSelectList<Frequency>()" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EditHabit.Category" class="form-label"></label>
+        <select asp-for="EditHabit.Category" asp-items="Html.GetEnumSelectList<Category>()" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

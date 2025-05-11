@@ -1,4 +1,38 @@
 ﻿@page
 @model MyDailyHabits.App.Pages.Habits.IndexModel
 @{
+    Layout = "_Layout";
 }
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+<table class="table table-light table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habit in Model.Habits.Records)
+        {
+            <tr>
+                <td>@habit.Id</td>
+                <td>@habit.Title</td>
+                <td>@habit.StartDate</td>
+                <td>@habit.EndDate</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-warning" asp-page="/Habits/EditHabit" asp-route-id="@habit.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Habits/DeleteHabit" asp-route-id="@habit.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
