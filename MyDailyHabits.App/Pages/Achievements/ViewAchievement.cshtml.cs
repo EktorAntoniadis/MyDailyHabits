@@ -1,26 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyDailyHabits.Data.Enums;
 using MyDailyHabits.Data.Models;
 using MyDailyHabits.Operations.Interfaces;
-using MyDailyHabits.Operations.Pagination;
 
 namespace MyDailyHabits.App.Pages.Achievements
 {
-    public class IndexModel : PageModel
+    public class ViewAchievementModel : PageModel
     {
         private readonly IHabitRepository _habitRepository;
 
-        public IndexModel(IHabitRepository habitRepository)
+        public ViewAchievementModel(IHabitRepository habitRepository)
         {
             _habitRepository = habitRepository ?? throw new ArgumentNullException(nameof(habitRepository));
         }
 
-        public IEnumerable<Achievement> Achievements { get; set; }      
+        public Achievement ViewAchievement { get; set; }
 
-        public IActionResult OnGet(string view)
+        public IActionResult OnGet(int id)
         {
-            Achievements = _habitRepository.GetAchievements();
+            ViewAchievement = _habitRepository.GetAchievementById(id);
+            if (ViewAchievement == null)
+            {
+                return NotFound();
+            }
+
             return Page();
         }
     }

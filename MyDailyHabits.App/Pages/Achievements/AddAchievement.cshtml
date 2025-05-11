@@ -1,0 +1,35 @@
+﻿@page
+@using MyDailyHabits.Data.Enums
+@model MyDailyHabits.App.Pages.Achievements.AddAchievementModel
+@{
+    ViewData["Title"] = "Add Achievement";
+}
+
+@section AdminSideBar {
+    <partial name="Administration/_AdminSidebar" />
+}
+
+
+<h2>Add a New Achievement</h2>
+
+<form method="post" asp-page-handler="AddNewAchievement">
+    <div class="form-group">
+        <label asp-for="AddAchievement.Title" class="form-label"></label>
+        <input asp-for="AddAchievement.Title" class="form-control" />
+        <span asp-validation-for="AddAchievement.Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddAchievement.Description" class="form-label"></label>
+        <textarea asp-for="AddAchievement.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddAchievement.EarnedAt" class="form-label"></label>
+        <input asp-for="AddAchievement.EarnedAt" type="date" class="form-control" />
+        <span asp-validation-for="AddAchievement.EarnedAt" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Achievement</button>
+    <a class="btn btn-secondary" asp-page="/Achievements/Index">Back</a>
+</form>

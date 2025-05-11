@@ -1,0 +1,20 @@
+﻿@page "{id:int}"
+@model MyDailyHabits.App.Pages.Achievements.ViewAchievementModel
+@{
+    ViewData["Title"] = "View Achievement";
+}
+
+<h2>Achievement Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Title:</dt>
+    <dd class="col-sm-10">@Model.ViewAchievement.Title</dd>
+
+    <dt class="col-sm-2">Description:</dt>
+    <dd class="col-sm-10">@Model.ViewAchievement.Description</dd>
+
+    <dt class="col-sm-2">Earned At:</dt>
+    <dd class="col-sm-10">@Model.ViewAchievement.EarnedAt.ToString("yyyy-MM-dd")</dd>
+</dl>
+
+<a class="btn btn-secondary" asp-page="/Achievements/Index">Back to List</a>

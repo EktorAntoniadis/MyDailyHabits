@@ -2,3 +2,38 @@
 @model MyDailyHabits.App.Pages.Achievements.IndexModel
 @{
 }
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+
+<table class="table table-light table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Earned At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var achievement in Model.Achievements)
+        {
+            <tr>
+                <td>@achievement.Id</td>
+                <td>@achievement.Title</td>
+                <td>@achievement.Description</td>
+                <td>@achievement.EarnedAt</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-warning" asp-page="/Achievements/EditAchievement" asp-route-id="@achievement.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Achievements/DeleteAchievement" asp-route-id="@achievement.Id">Delete</a>
+                        <a class="btn btn-info" asp-page="/Achievements/ViewAchievement" asp-route-id="@achievement.Id">View</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
