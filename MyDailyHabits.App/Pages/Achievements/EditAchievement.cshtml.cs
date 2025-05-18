@@ -23,7 +23,7 @@ namespace MyDailyHabits.App.Pages.Achievements
             return Page();
         }
 
-        public IActionResult OnPostUpdateHabit()
+        public IActionResult OnPostUpdateAchievement()
         {
 
             _habitRepository.UpdateAchievement(EditAchievement);

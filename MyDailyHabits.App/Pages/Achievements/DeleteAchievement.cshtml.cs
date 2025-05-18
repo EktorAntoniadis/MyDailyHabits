@@ -30,7 +30,7 @@ namespace MyDailyHabits.App.Pages.Achievements
 
         public IActionResult OnPostDelete()
         {
-            _habitRepository.DeleteHabit(DeleteAchievement.Id);
+            _habitRepository.DeleteAchievement(DeleteAchievement.Id);
             return RedirectToPage("/Achievements/Index");
         }
     }

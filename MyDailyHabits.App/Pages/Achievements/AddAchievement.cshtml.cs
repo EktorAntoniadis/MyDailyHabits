@@ -25,6 +25,7 @@ namespace MyDailyHabits.App.Pages.Achievements
 
         public IActionResult OnPostAddNewAchievement()
         {
+            AddAchievement.UserId = 1;
             _habitRepository.AddAchievement(AddAchievement);
             return RedirectToPage("/Achievements/Index");
         }
