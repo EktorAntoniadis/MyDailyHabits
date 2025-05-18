@@ -1,37 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyDailyHabits.Data.Models;
+using MyDailyHabits.Operations.Implementations;
 using MyDailyHabits.Operations.Interfaces;
-using System.Security;
 
 namespace MyDailyHabits.App.Pages.Habits
 {
-    public class DeleteModel : PageModel
+    public class ViewModel : PageModel
     {
         private readonly IHabitRepository _habitRepository;
 
-        public DeleteModel(IHabitRepository habitRepository)
+        public ViewModel(IHabitRepository habitRepository)
         {
             _habitRepository = habitRepository ?? throw new ArgumentNullException(nameof(habitRepository));
         }
 
         [BindProperty]
-        public Habit DeleteHabit { get; set; }
+        public Habit ViewHabit { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            DeleteHabit = _habitRepository.GetHabitById(id);
-            if (DeleteHabit == null)
+            ViewHabit = _habitRepository.GetHabitById(id);
+
+            if (ViewHabit == null)
             {
                 return NotFound();
             }
-            return Page();
-        }
 
-        public IActionResult OnPostDelete()
-        {
-            _habitRepository.DeleteHabit(DeleteHabit.Id);
-            return RedirectToPage("/Habits/Index");
+            return Page();
         }
     }
 }

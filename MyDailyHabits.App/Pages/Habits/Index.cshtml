@@ -8,6 +8,8 @@
     <partial name="Shared/_HabitSideBar" />
 }
 
+<a class="btn btn-info mt-3 mb-3" asp-page="/Habits/CreateHabit">Create new Habit</a>
+
 <table class="table table-light table-responsive">
     <thead>
         <tr>
@@ -30,6 +32,7 @@
                     <div class="btn-group" role="group">
                         <a class="btn btn-warning" asp-page="/Habits/EditHabit" asp-route-id="@habit.Id">Edit</a>
                         <a class="btn btn-danger" asp-page="/Habits/DeleteHabit" asp-route-id="@habit.Id">Delete</a>
+                        <a class="btn btn-info" asp-page="/Habits/ViewHabit" asp-route-id="@habit.Id">View</a>
                     </div>
                 </td>
             </tr>

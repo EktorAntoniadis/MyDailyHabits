@@ -22,13 +22,16 @@ namespace MyDailyHabits.Pages.Habits
         {
             AddHabit = new Habit()
             {
-                Logs = new List<HabitLog>()
+                Logs = new List<HabitLog>(),
+                StartDate = DateTime.Today,
+                EndDate = DateTime.Now.AddDays(1),
             };
             return Page();
         }
 
         public IActionResult OnPostAddNewHabit()
         {
+            AddHabit.UserId = 1;
             _habitRepository.AddHabit(AddHabit);
             return RedirectToPage("/Habits/Index");
         }

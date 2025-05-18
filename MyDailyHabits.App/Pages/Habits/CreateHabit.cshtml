@@ -5,8 +5,8 @@
     ViewData["Title"] = "Add Habit";
 }
 
-@section AdminSideBar {
-    <partial name="Administration/_AdminSidebar" />
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
 }
 
 
@@ -26,8 +26,8 @@
 
     <div class="form-group">
         <label asp-for="AddHabit.StartDate" class="form-label"></label>
-        <input asp-for="AddHabit.StartDate" type="date" class="form-control" />
-        <span asp-validation-for="AddHabit.StartDate" class="text-danger"></span>
+        <input asp-for="AddHabit.StartDate" type="date" min="@DateTime.Today" class="form-control" />
+        <span asp-validation-for="AddHabit.StartDate"  class="text-danger"></span>
     </div>
 
     <div class="form-group">

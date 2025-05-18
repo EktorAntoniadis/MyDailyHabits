@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@using MyDailyHabits.Data.Enums
+@model MyDailyHabits.App.Pages.Habits.ViewModel
+@{
+    ViewData["Title"] = "View Habit";
+}
+
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
+}
+
+<div class="card w-auto p-3">
+    <div class="card-header card-title text-center">
+        <h2>@Model.ViewHabit.Title @Model.ViewHabit.Title</h2>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-2"><p>Description:</p></div>
+            <div class="col-10"> <p>@Model.ViewHabit.Description</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>Start Date:</p></div>
+            <div class="col-10"> <p>@Model.ViewHabit.StartDate</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>End Date:</p></div>
+            <div class="col-10"> <p>@Model.ViewHabit.EndDate</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>Frequency:</p></div>
+            <div class="col-10"> <p>@Model.ViewHabit.Frequency</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>Category:</p></div>
+            <div class="col-10"> <p>@Model.ViewHabit.Category</p></div>
+        </div>
+    </div>
+</div

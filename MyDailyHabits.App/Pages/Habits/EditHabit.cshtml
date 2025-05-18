@@ -5,11 +5,14 @@
     ViewData["Title"] = "Edit Habit";
 }
 
-@section AdminSideBar {
-    <partial name="Administration/_AdminSidebar" />
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
 }
 
 <form method="post" asp-page-handler="UpdateHabit">
+    <input type="hidden" asp-for="EditHabit.UserId" /> 
+    <input type="hidden" asp-for="EditHabit.Id" /> 
+
     <div class="form-group">
         <label asp-for="EditHabit.Title" class="form-label"></label>
         <input asp-for="EditHabit.Title" class="form-control" />

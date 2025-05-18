@@ -29,7 +29,7 @@ namespace MyDailyHabits.App.Pages.Habits
             _habitRepository.UpdateHabit(EditHabit);
 
 
-            return RedirectToPage("/Administration/Index", new { view = "_EditPermissions" });
+            return RedirectToPage("/Habits/Index");
         }
     }
 }
