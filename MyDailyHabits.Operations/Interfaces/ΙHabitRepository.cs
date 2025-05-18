@@ -34,7 +34,7 @@ public interface IHabitRepository
     void AddAchievement(Achievement achievement);
 
     void UpdateAchievement(Achievement achievement);
-
+    void DeleteAchievement(int id);
     Achievement? GetAchievementById(int id);
     void DeleteStreak(int id);
    IEnumerable<Streak> GetStreaks();

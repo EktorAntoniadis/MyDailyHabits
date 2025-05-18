@@ -79,17 +79,17 @@ namespace MyDailyHabits.Operations.Implementations
             _context.SaveChanges();
         }
         public PaginatedList<Habit> GetHabits(
-            int pageIndex, 
-            int pageSize, 
-            string? title = null, 
-            DateTime? startDate = null, 
-            DateTime? endDate = null, 
-            string? sortColumn = "Title", 
+            int pageIndex,
+            int pageSize,
+            string? title = null,
+            DateTime? startDate = null,
+            DateTime? endDate = null,
+            string? sortColumn = "Title",
             string? sortDirection = "asc")
         {
             var query = _context.Habits
                 .Include(x => x.User)
-                .Include(x=>x.Logs)
+                .Include(x => x.Logs)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(title))
@@ -129,7 +129,7 @@ namespace MyDailyHabits.Operations.Implementations
 
         public IEnumerable<Reminder> GetReminders()
         {
-            return _context.Reminders.Include(x=>x.Habit).ToList();
+            return _context.Reminders.Include(x => x.Habit).ToList();
         }
 
         public Streak? GetStreakById(int id)
@@ -174,6 +174,16 @@ namespace MyDailyHabits.Operations.Implementations
         public IEnumerable<Streak> GetStreaks()
         {
             return _context.Streaks.ToList();
+        }
+
+        public void DeleteAchievement(int id)
+        {
+            var achievement = GetAchievementById(id);
+            if (achievement != null)
+            {
+                _context.Achievements.Remove(achievement);
+                _context.SaveChanges();
+            }
         }
     }
 }
