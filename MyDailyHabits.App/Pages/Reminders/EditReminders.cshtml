@@ -1,12 +1,12 @@
-﻿@page
+﻿@page "{id:int}"
 @using MyDailyHabits.Data.Enums
 @model MyDailyHabits.App.Pages.Reminders.EditRemindersModel
 @{
     ViewData["Title"] = "Edit Reminder";
 }
 
-@section AdminSideBar {
-    <partial name="Administration/_AdminSidebar" />
+@section HabitSideBar {
+    <partial name="Shared/_HabitSideBar" />
 }
 
 <form method="post" asp-page-handler="UpdateReminder">
@@ -21,11 +21,19 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="EditReminder.RepeatDays" class="form-label"></label>
-        <input asp-for="EditReminder.RepeatDays" type="text" class="form-control" />
-        <span asp-validation-for="EditReminder.RepeatDays" class="text-danger"></span>
+        <label asp-for="RepeatDaysStringList" class="form-label"> Repeat Days</label>
+        <input asp-for="RepeatDaysStringList" type="text" class="form-control" />
+        <span asp-validation-for="RepeatDaysStringList" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">EditReminder</button>
+    <div class="form-group mt-3">
+        <label asp-for="SelectedHabitId" class="form-label">Habit</label>
+        <select asp-for="SelectedHabitId" asp-items="Model.HabitListItems" class="form-control">
+            <option value="">-- Select Habit --</option>
+        </select>
+        <span asp-validation-for="SelectedHabitId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit Reminder</button>
     <a class="btn btn-secondary" asp-page="/Reminder/Index">Back</a>
 </form>

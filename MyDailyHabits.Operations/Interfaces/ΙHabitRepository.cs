@@ -23,6 +23,7 @@ public interface IHabitRepository
 
     void UpdateHabit(Habit habit);
     void DeleteHabit(int id);
+    IEnumerable<Habit> GetAllHabits();
     void AddReminder(Reminder reminder);
     Reminder? GetReminderById(int id);
     IEnumerable<Reminder> GetReminders();

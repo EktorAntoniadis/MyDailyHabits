@@ -183,7 +183,13 @@ namespace MyDailyHabits.Operations.Implementations
             {
                 _context.Achievements.Remove(achievement);
                 _context.SaveChanges();
+
             }
+        }
+
+        public IEnumerable<Habit> GetAllHabits()
+        {
+            return _context.Habits.Include(h => h.User).ToList();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace MyDailyHabits.App.Pages.Reminders
         public IActionResult OnPostDelete()
         {
             _habitRepository.DeleteReminder(DeleteReminder.Id);
-            return RedirectToPage("/Achievements/Index");
+            return RedirectToPage("/Reminders/Index");
         }
     }
 }

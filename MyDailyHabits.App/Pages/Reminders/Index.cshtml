@@ -7,6 +7,8 @@
     <partial name="Shared/_HabitSideBar" />
 }
 
+<a class="btn btn-info mt-3 mb-3" asp-page="/Reminders/AddReminders">Add new Reminder</a>
+
 <table class="table table-light table-responsive">
     <thead>
         <tr>
@@ -21,11 +23,11 @@
             <tr>
                 <td>@reminder.Id</td>
                 <td>@reminder.Time</td>
-                <td>@reminder.RepeatDays</td>
+                <td>@string.Join(", ", @reminder.RepeatDays)</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a class="btn btn-warning" asp-page="/Reminders/EditReminder" asp-route-id="@reminder.Id">Edit</a>
-                        <a class="btn btn-danger" asp-page="/Reminders/DeleteReminder" asp-route-id="@reminder.Id">Delete</a>
+                        <a class="btn btn-warning" asp-page="/Reminders/EditReminders" asp-route-id="@reminder.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Reminders/DeleteReminders" asp-route-id="@reminder.Id">Delete</a>
                     </div>
                 </td>
             </tr>
