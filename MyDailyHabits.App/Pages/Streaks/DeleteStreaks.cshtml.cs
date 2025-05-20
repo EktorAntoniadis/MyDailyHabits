@@ -19,11 +19,11 @@ namespace MyDailyHabits.Pages.Streaks
 
         public IActionResult OnGet(int id)
         {
-            var streak = _habitRepository.GetStreakById(id);
-            if (streak == null)
+            Streak = _habitRepository.GetStreakById(id);
+
+            if (Streak == null)
                 return NotFound();
 
-            Streak = streak;
             return Page();
         }
 
