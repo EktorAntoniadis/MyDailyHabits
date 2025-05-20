@@ -26,6 +26,16 @@
         <input asp-for="NewStreak.LastCompletedDate" type="date" class="form-control" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Add Streak</button>
-    <a class="btn btn-secondary" asp-page="/Streaks/Index">Back</a>
+    <div class="form-group mt-3">
+        <label asp-for="SelectedHabitId" class="form-label">Habit</label>
+        <select asp-for="SelectedHabitId" asp-items="Model.HabitListItems" class="form-control">
+            <option value="">-- Select Habit --</option>
+        </select>
+        <span asp-validation-for="SelectedHabitId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Add Streak</button>
+        <a class="btn btn-secondary" asp-page="/Streaks/Index">Back</a>
+    </div>
 </form>

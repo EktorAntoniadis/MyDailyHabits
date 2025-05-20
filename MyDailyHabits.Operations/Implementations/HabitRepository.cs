@@ -173,7 +173,7 @@ namespace MyDailyHabits.Operations.Implementations
 
         public IEnumerable<Streak> GetStreaks()
         {
-            return _context.Streaks.ToList();
+            return _context.Streaks.Include(x=>x.Habit).ToList();
         }
 
         public void DeleteAchievement(int id)

@@ -7,6 +7,8 @@
     <partial name="Shared/_HabitSideBar" />
 }
 
+<a class="btn btn-info mt-3 mb-3" asp-page="/Streaks/AddStreaks">Add new Streak</a>
+
 <table class="table table-light table-responsive">
     <thead>
         <tr>
@@ -21,7 +23,7 @@
         {
             <tr>
                 <td>@streak.Id</td>
-                <td>@streak.Habit</td>
+                <td>@streak.Habit.Title</td>
                 <td>@streak.CurrentStreak</td>
                 <td>@streak.LongestStreak</td>
                 <td>
