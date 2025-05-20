@@ -7,25 +7,35 @@
 <h2>Edit Streak</h2>
 
 <form method="post">
-    <input type="hidden" asp-for="Streak.Id" />    
-        <input type="hidden" asp-for="Streak.HabitId" class="form-control" />
-    
+    <input type="hidden" asp-for="EditStreak.Id" />
+    <input type="hidden" asp-for="EditStreak.HabitId" class="form-control" />
+
 
     <div class="form-group">
-        <label asp-for="Streak.CurrentStreak" class="form-label"></label>
-        <input asp-for="Streak.CurrentStreak" class="form-control" />
+        <label asp-for="EditStreak.CurrentStreak" class="form-label">Current Streak</label>
+        <input asp-for="EditStreak.CurrentStreak" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Streak.LongestStreak" class="form-label"></label>
-        <input asp-for="Streak.LongestStreak" class="form-control" />
+        <label asp-for="EditStreak.LongestStreak" class="form-label">Longest Streak</label>
+        <input asp-for="EditStreak.LongestStreak" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Streak.LastCompletedDate" class="form-label"></label>
-        <input asp-for="Streak.LastCompletedDate" type="date" class="form-control" />
+        <label asp-for="EditStreak.LastCompletedDate" class="form-label">Last Completed Date</label>
+        <input asp-for="EditStreak.LastCompletedDate" type="date" class="form-control" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-page="/Streaks/Index" class="btn btn-secondary">Cancel</a>
+    <div class="form-group mt-3">
+        <label asp-for="SelectedHabitId" class="form-label">Habit</label>
+        <select asp-for="SelectedHabitId" asp-items="Model.HabitListItems" class="form-control">
+            <option value="">-- Select Habit --</option>
+        </select>
+        <span asp-validation-for="SelectedHabitId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-page="/Streaks/Index" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>

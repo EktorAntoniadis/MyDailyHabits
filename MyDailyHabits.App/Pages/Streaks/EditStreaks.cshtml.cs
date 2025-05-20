@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MyDailyHabits.Data.Models;
 using MyDailyHabits.Operations.Interfaces;
 
@@ -10,7 +11,12 @@ namespace MyDailyHabits.Pages.Streaks
         private readonly IHabitRepository _habitRepository;
 
         [BindProperty]
-        public Streak Streak { get; set; } = new();
+        public Streak EditStreak { get; set; }
+
+        [BindProperty]
+        public int SelectedHabitId { get; set; }
+
+        public List<SelectListItem> HabitListItems { get; set; }
 
         public EditStreaksModel(IHabitRepository habitRepository)
         {
@@ -19,20 +25,30 @@ namespace MyDailyHabits.Pages.Streaks
 
         public IActionResult OnGet(int id)
         {
-            var streak = _habitRepository.GetStreakById(id);
-            if (streak == null)
+            EditStreak = _habitRepository.GetStreakById(id);
+
+            if (EditStreak == null)
                 return NotFound();
 
-            Streak = streak;
+            var habits = _habitRepository.GetHabits(1, 20);
+            HabitListItems = habits.Records.Select(h => new SelectListItem
+            {
+                Text = h.Title,
+                Value = h.Id.ToString()
+            }).ToList();
+
+            SelectedHabitId = EditStreak.HabitId;
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            ModelState.Remove("EditStreak.Habit");
             if (!ModelState.IsValid)
                 return Page();
 
-            _habitRepository.UpdateStreak(Streak);
+            EditStreak.HabitId = SelectedHabitId;
+            _habitRepository.UpdateStreak(EditStreak);
             return RedirectToPage("/Streaks/Index");
         }
     }

@@ -16,6 +16,7 @@
             <th>Habit</th>
             <th>Current Streak</th>
             <th>Longest Streak</th>
+            <th>Last Completed Date</th>
         </tr>
     </thead>
     <tbody>
@@ -26,10 +27,11 @@
                 <td>@streak.Habit.Title</td>
                 <td>@streak.CurrentStreak</td>
                 <td>@streak.LongestStreak</td>
+                <td>@streak.LastCompletedDate</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a class="btn btn-warning" asp-page="/Streaks/EditStreak" asp-route-id="@streak.Id">Edit</a>
-                        <a class="btn btn-danger" asp-page="/Streaks/DeleteStreak" asp-route-id="@streak.Id">Delete</a>
+                        <a class="btn btn-warning" asp-page="/Streaks/EditStreaks" asp-route-id="@streak.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Streaks/DeleteStreaks" asp-route-id="@streak.Id">Delete</a>
                     </div>
                 </td>
             </tr>
