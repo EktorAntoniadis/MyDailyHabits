@@ -32,7 +32,9 @@ namespace MyDailyHabits.App.Pages.Reminders
         {
             AddReminder = new Reminder();
 
-            var habits = _habitRepository.GetHabits(1, 20);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var habits = _habitRepository.GetHabits(1, 20, userId.Value);
+
             HabitListItems = habits.Records.Select(h => new SelectListItem
             {
                 Text = h.Title,
@@ -47,7 +49,9 @@ namespace MyDailyHabits.App.Pages.Reminders
 
         public IActionResult OnPostAddNewReminder()
         {
-            AddReminder.UserId = 1;
+            var userId = HttpContext.Session.GetInt32("UserId");
+            AddReminder.UserId = userId!.Value;
+
             AddReminder.HabitId = SelectedHabitId;
             AddReminder.RepeatDays = RepeatDaysStringList.Split(", ").ToList();
             _habitRepository.AddReminder(AddReminder);

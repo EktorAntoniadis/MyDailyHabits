@@ -18,7 +18,9 @@ namespace MyDailyHabits.App.Pages.Reminders
 
         public IActionResult OnGet(string view)
         {
-            Reminders = _habitRepository.GetReminders();
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            Reminders = _habitRepository.GetReminders(userId.Value);
             return Page();
         }
     }

@@ -18,7 +18,28 @@ namespace MyDailyHabits.App
             builder.Services.AddDbContext<MyDailyHabitsContext>(options => options.UseSqlite("Data Source=mydailyhabits.db"));
 
             builder.Services.AddScoped<IHabitRepository, HabitRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
             builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.Cookie.SameSite = SameSiteMode.Strict;
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
+
+            builder.Services.AddAuthentication("MyDailyHabitsScheme")
+              .AddCookie("MyDailyHabitsScheme", options =>
+              {
+                  options.LoginPath = "/Login";
+                  options.AccessDeniedPath = "/Error";
+              });
+
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
 
@@ -34,8 +55,9 @@ namespace MyDailyHabits.App
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapRazorPages();
 

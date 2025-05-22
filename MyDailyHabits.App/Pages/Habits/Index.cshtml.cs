@@ -39,10 +39,12 @@ namespace MyDailyHabits.App.Pages.Habits
 
         public IActionResult OnGet(string view)
         {
-            
-                Habits = _habitRepository.GetHabits(
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            Habits = _habitRepository.GetHabits(
                     PageIndex,
                     10,
+                    userId.Value,
                     Title,
                     JoinDate,
                     EndDate);            

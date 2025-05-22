@@ -26,8 +26,9 @@ namespace MyDailyHabits.Pages.Streaks
         public IActionResult OnGet()
         {
             NewStreak = new Streak();
+            var userId = HttpContext.Session.GetInt32("UserId");
 
-            var habits = _habitRepository.GetHabits(1, 20);
+            var habits = _habitRepository.GetHabits(1, 20, userId.Value);
             HabitListItems = habits.Records.Select(h => new SelectListItem
             {
                 Text = h.Title,
@@ -41,7 +42,9 @@ namespace MyDailyHabits.Pages.Streaks
             ModelState.Remove("NewStreak.Habit");
             if (!ModelState.IsValid)
             {
-                var habits = _habitRepository.GetHabits(1, 20);
+                var userId = HttpContext.Session.GetInt32("UserId");
+
+                var habits = _habitRepository.GetHabits(1, 20, userId.Value);
                 HabitListItems = habits.Records.Select(h => new SelectListItem
                 {
                     Text = h.Title,

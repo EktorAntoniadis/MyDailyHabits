@@ -81,6 +81,7 @@ namespace MyDailyHabits.Operations.Implementations
         public PaginatedList<Habit> GetHabits(
             int pageIndex,
             int pageSize,
+            int userId,
             string? title = null,
             DateTime? startDate = null,
             DateTime? endDate = null,
@@ -88,6 +89,7 @@ namespace MyDailyHabits.Operations.Implementations
             string? sortDirection = "asc")
         {
             var query = _context.Habits
+                .Where(x => x.UserId == userId)
                 .Include(x => x.User)
                 .Include(x => x.Logs)
                 .AsQueryable();
@@ -127,9 +129,11 @@ namespace MyDailyHabits.Operations.Implementations
             return new PaginatedList<Habit>(habits, totalRecords, pageIndex, pageSize);
         }
 
-        public IEnumerable<Reminder> GetReminders()
+        public IEnumerable<Reminder> GetReminders(int userId)
         {
-            return _context.Reminders.Include(x => x.Habit).ToList();
+            return _context.Reminders
+                .Where(x=>x.UserId == userId)
+                .Include(x => x.Habit).ToList();
         }
 
         public Streak? GetStreakById(int id)
@@ -156,9 +160,11 @@ namespace MyDailyHabits.Operations.Implementations
             _context.SaveChanges();
         }
 
-        public IEnumerable<Achievement> GetAchievements()
+        public IEnumerable<Achievement> GetAchievements(int userId)
         {
-            return _context.Achievements.ToList();
+            return _context.Achievements
+                .Where(x=>x.UserId == userId)
+                .ToList();
         }
 
         public void DeleteStreak(int id)
@@ -171,9 +177,11 @@ namespace MyDailyHabits.Operations.Implementations
             }
         }
 
-        public IEnumerable<Streak> GetStreaks()
+        public IEnumerable<Streak> GetStreaks(int userId)
         {
-            return _context.Streaks.Include(x=>x.Habit).ToList();
+            return _context.Streaks
+                .Include(x=>x.Habit)                 
+                .Where(x => x.Habit.UserId == userId).ToList();
         }
 
         public void DeleteAchievement(int id)
