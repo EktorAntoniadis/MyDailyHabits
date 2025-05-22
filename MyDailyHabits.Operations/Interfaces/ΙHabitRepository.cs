@@ -13,20 +13,21 @@ public interface IHabitRepository
     PaginatedList<Habit> GetHabits(
         int pageIndex,
         int pageSize,
+        int userId,
         string? title = null,
         DateTime? startDate = null,
         DateTime? endDate = null,
         string? sortColumn = "title",
         string? sortDirection = "asc");
 
-    IEnumerable<Achievement> GetAchievements();
+    IEnumerable<Achievement> GetAchievements(int userId);
 
     void UpdateHabit(Habit habit);
     void DeleteHabit(int id);
     IEnumerable<Habit> GetAllHabits();
     void AddReminder(Reminder reminder);
     Reminder? GetReminderById(int id);
-    IEnumerable<Reminder> GetReminders();
+    IEnumerable<Reminder> GetReminders(int userId);
     void UpdateReminder(Reminder reminder);
     void DeleteReminder(int id);
     void AddStreak(Streak sreak);
@@ -38,5 +39,5 @@ public interface IHabitRepository
     void DeleteAchievement(int id);
     Achievement? GetAchievementById(int id);
     void DeleteStreak(int id);
-   IEnumerable<Streak> GetStreaks();
+   IEnumerable<Streak> GetStreaks(int userId);
 }
