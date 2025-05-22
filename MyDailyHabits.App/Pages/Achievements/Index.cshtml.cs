@@ -20,7 +20,9 @@ namespace MyDailyHabits.App.Pages.Achievements
 
         public IActionResult OnGet(string view)
         {
-            Achievements = _habitRepository.GetAchievements();
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            Achievements = _habitRepository.GetAchievements(userId.Value);
             return Page();
         }
     }

@@ -31,7 +31,8 @@ namespace MyDailyHabits.Pages.Habits
 
         public IActionResult OnPostAddNewHabit()
         {
-            AddHabit.UserId = 1;
+            var userId = HttpContext.Session.GetInt32("UserId");
+            AddHabit.UserId = userId.Value;
             _habitRepository.AddHabit(AddHabit);
             return RedirectToPage("/Habits/Index");
         }
