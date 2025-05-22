@@ -35,7 +35,9 @@ namespace MyDailyHabits.App.Pages.Reminders
                 return NotFound();
             }
 
-            var habits = _habitRepository.GetHabits(1, 20);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var habits = _habitRepository.GetHabits(1, 20, userId.Value);
+
             HabitListItems = habits.Records.Select(h => new SelectListItem
             {
                 Text = h.Title,
@@ -58,7 +60,9 @@ namespace MyDailyHabits.App.Pages.Reminders
             EditReminder.RepeatDays = RepeatDaysStringList.Split(", ").ToList();
             if (!ModelState.IsValid)
             {
-                var habits = _habitRepository.GetHabits(1, 20);
+                var userId = HttpContext.Session.GetInt32("UserId");
+                var habits = _habitRepository.GetHabits(1, 20, userId.Value);
+
                 HabitListItems = habits.Records.Select(h => new SelectListItem
                 {
                     Text = h.Title,

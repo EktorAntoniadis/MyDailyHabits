@@ -18,7 +18,9 @@ namespace MyDailyHabits.App.Pages.Streaks
 
         public IActionResult OnGet(string view)
         {
-            Streaks = _habitRepository.GetStreaks();
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            Streaks = _habitRepository.GetStreaks(userId.Value);
             return Page();
         }
     }
