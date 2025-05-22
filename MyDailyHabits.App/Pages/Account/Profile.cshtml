@@ -2,3 +2,23 @@
 @model MyDailyHabits.App.Pages.Account.ProfileModel
 @{
 }
+
+<div class="card w-auto p-3">
+    <div class="card-header card-title text-center">
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-2"><p>Username:</p></div>
+            <div class="col-10"> <p>@Model.LoggedInUser.Username</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>Email: </p></div>
+            <div class="col-10"> <p>@Model.LoggedInUser.Email</p></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><p>Password: </p></div>
+            <div class="col-2"><input type="password" class="form-control" value="@Model.LoggedInUser.PasswordHash" disabled /></div>
+
+        </div>
+    </div>
+</div>

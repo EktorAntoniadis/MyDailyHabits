@@ -1,4 +1,48 @@
 ﻿@page
 @model MyDailyHabits.App.Pages.Account.RegisterModel
 @{
+    ViewData["Title"] = "Register as a abit";
 }
+
+<h2>Register your data</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken();
+    <div class="form-group">
+        <label class="form-label" asp-for="NewUser.Email">Email</label>
+        <input class="form-control" type="email" asp-for="NewUser.Email" />
+        <span asp-validation-for="NewUser.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="NewUser.Username">Username</label>
+        <input class="form-control" type="text" asp-for="NewUser.Username" />
+        <span asp-validation-for="NewUser.Username" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-label" asp-for="NewUser.PasswordHash">Password</label>
+        <input class="form-control" type="password" asp-for="NewUser.PasswordHash" />
+        <span asp-validation-for="NewUser.PasswordHash" class="text-danger"></span>
+
+        @if (Model.PasswordErrors.Any())
+        {
+            <ul>
+                @foreach (var error in Model.PasswordErrors)
+                {
+                    <li><span class="text-danger">@error</span></li>
+                }
+            </ul>
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p class="text-danger">@Model.ErrorMessage</p>
+    }
+
+    <button type="submit" class="btn btn-primary mt-3">
+        Register
+    </button>
+</form>
