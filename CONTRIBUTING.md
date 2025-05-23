@@ -1,11 +1,63 @@
-# Contributing to MyDailyHabits
+# Οδηγίες Συνεισφοράς στο MyDailyHabits
 
-Thank you for considering contributing to MyDailyHabits! 🎉 We welcome all contributions, from bug fixes to feature enhancements.
+Καταρχάς, σας ευχαριστούμε που δείχνετε ενδιαφέρον να συνεισφέρετε στο **MyDailyHabits**! Η συμβολή σας είναι πολύτιμη για τη βελτίωση και εξέλιξη του έργου.
 
+## 📌 Πριν Ξεκινήσετε
+
+- Παρακαλούμε διαβάστε πρώτα τον [Κώδικα Δεοντολογίας](CODE_OF_CONDUCT.md).
+- Βεβαιωθείτε ότι έχετε εξετάσει τυχόν [ανοικτά ζητήματα (issues)](https://github.com/EktorAntoniadis/MyDailyHabits/issues) που σχετίζονται με την ιδέα σας.
+- Αν ξεκινάτε νέο θέμα, ανοίξτε πρώτα ένα νέο issue για να το συζητήσουμε μαζί.
+
+## Τι μπορείτε να συνεισφέρετε
+- Νέες λειτουργίες
+- Διορθώσεις σε σφάλματα
+- Βελτιώσεις διεπαφής
+- Τεκμηρίωση
+- Δοκιμές και βελτίωση κάλυψης
+
+## 🧑‍💻 Πως να Συνεισφέρετε
+
+### 1. Fork & Clone
+Κάντε `fork` στο αποθετήριο και στη συνέχεια:
+```bash
+git clone https://github.com/το-username-sas/MyDailyHabits.git
+cd MyDailyHabits
 ## 🛠 How to Contribute
 1. **Fork the repository** on GitHub.
 2. **Clone your fork** and create a new branch.
-   ```sh
-   git clone https://github.com/yourusername/MyDailyHabits.git
-   cd MyDailyHabits
-   git checkout -b feature-name
+```
+
+```sh
+git clone https://github.com/yourusername/MyDailyHabits.git
+cd MyDailyHabits
+git checkout -b feature-name
+```
+
+### 2. Κώδικας και τεκμηρίωση
+- Γράψτε καθαρό και σχολιασμένο C# κώδικα.
+- Αν προσθέσετε νέα features, ενημερώστε την τεκμηρίωση και το README.md αν χρειάζεται.
+
+### 3. Δοκιμές
+- Αν είναι εφικτό, προσθέστε ή ενημερώστε unit tests.
+- Βεβαιωθείτε ότι το έργο γίνεται build και οι υπάρχουσες δοκιμές περνούν.
+
+### 4. Commit και Push
+Για νά κάνετε Commit μπορείτε μέσω γραμμής εντολών
+```bash
+git add .
+git commit -m "Προσθήκη νέας λειτουργίας X"
+git push origin feature/το-όνομα-της-βελτίωσης
+```
+
+### 5. Pull Request
+
+- Μεταβείτε στο GitHub και δημιουργήστε ένα νέο Pull Request από τον κλάδο σας προς το main.
+
+### 6. Συμβάσεις κώδικα
+- Χρησιμοποιούμε C#, .NET 8 και SQLite.
+- Προσπαθούμε να κρατάμε τη λογική απλή και καθαρή.
+- Προτιμάμε μηνύματα Commit που να περιγράφουν σωστά αυτό που υλοποιήσαμε.
+
+## Επικοινωνία
+Αν έχετε απορίες, μπορείτε να στείλετε email στο:
+📧 ek.antoniadis@pm.me

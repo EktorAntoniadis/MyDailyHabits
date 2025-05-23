@@ -1,26 +1,42 @@
+
 ### **📌 CODE_OF_CONDUCT.md (Community Rules)**
-```markdown
-# Contributor Covenant Code of Conduct
 
-## Our Pledge
-We as contributors and maintainers pledge to make participation in MyDailyHabits a welcoming and inclusive experience for everyone.
+# Κώδικας δεοντολογίας για το MyDailyHabits
 
-## Our Standards
-Examples of positive behavior:
-- Being respectful.
-- Giving constructive feedback.
-- Accepting different viewpoints.
+## Η υπόσχεση μας
+Ως μέλη, συνεισφέροντες και υπεύθυνοι αυτού του έργου, δεσμευόμαστε να κάνουμε τη συμμετοχή στην κοινότητά μας μια εμπειρία χωρίς παρενόχληση για όλους, ανεξαρτήτως ηλικίας, σωματικού μεγέθους, αναπηρίας, εθνικότητας, φύλου, ταυτότητας και έκφρασης φύλου, επιπέδου εμπειρίας, εθνικότητας, εξωτερικής εμφάνισης, φυλής, θρησκείας ή σεξουαλικής ταυτότητας και προσανατολισμού.
 
-Examples of unacceptable behavior:
-- Harassment or insults.
-- Discriminatory language.
-- Trolling or disruptive behavior.
+Δεσμευόμαστε να συμπεριφερόμαστε με τρόπο φιλικό και επαγγελματικό, με σεβασμό προς όλους.
 
-## Reporting Violations
-If you experience or witness misconduct, report it to: **[your email or GitHub Issues]**.
+## Οι Προσδοκώμενες Συμπεριφορές
 
-## Enforcement
-Violations may result in warnings or bans at maintainers' discretion.
+- Δείξτε ενσυναίσθηση και κατανόηση προς τους άλλους.
+- Χρησιμοποιείτε ευγενικό και ενθαρρυντικό λόγο.
+- Σεβαστείτε διαφορετικές απόψεις, εμπειρίες και τεχνικές αποφάσεις.
+- Δεχτείτε με χάρη την εποικοδομητική κριτική.
+- Εστιάστε σε αυτό που είναι καλύτερο για την κοινότητα.
+- Δείξτε κατανόηση απέναντι στα μέλη που μαθαίνουν.
 
----
-Adapted from the [Contributor Covenant](https://www.contributor-covenant.org/).
+## Μη Αποδεκτές Συμπεριφορές
+
+- Χρήση σεξουαλικού ή ρατσιστικού λόγου ή εικόνων.
+- Παρενόχληση δημόσια ή ιδιωτικά.
+- Προσωπικές επιθέσεις.
+- Δημοσίευση προσωπικών πληροφοριών άλλων χωρίς συγκατάθεση.
+- Άλλη συμπεριφορά που θα μπορούσε εύλογα να θεωρηθεί ανάρμοστη στο επαγγελματικό πλαίσιο.
+
+## Επιβολή
+
+Οι παραβιάσεις αυτού του Κώδικα Δεοντολογίας μπορούν να αναφερθούν στην ομάδα του έργου στην ακόλουθη διεύθυνση:
+
+📧 `ek.antoniadis@pm.me`
+
+Όλες οι καταγγελίες θα εξετάζονται και θα ερευνώνται εμπιστευτικά και κατά περίπτωση.
+
+## Πεδίο Εφαρμογής
+
+Αυτός ο Κώδικας Δεοντολογίας ισχύει τόσο σε δημόσιους χώρους του έργου όσο και σε ιδιωτική επικοινωνία μεταξύ μελών της κοινότητας.
+
+## Πηγή
+
+Αυτός ο Κώδικας Δεοντολογίας προέρχεται από το [Contributor Covenant](https://www.contributor-covenant.org), έκδοση 2.1.

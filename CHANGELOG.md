@@ -1,24 +1,22 @@
-# Changelog
 
-All notable changes to this project will be documented here.
+# Αρχείο Καταγραφής Αλλαγών (CHANGELOG)
 
-## [Unreleased]
-### Added
-- Initial habit tracking system.
-- User authentication.
-- Streak tracking.
+Όλες οι σημαντικές αλλαγές σε αυτό το έργο θα τεκμηριώνονται σε αυτό το αρχείο.
 
-### Fixed
-- Minor UI bugs in habit tracking.
+Η μορφή αυτού του αρχείου βασίζεται στο [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), και το έργο ακολουθεί [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - YYYY-MM-DD
-### Added
-- First stable release.
-- Core habit tracking features.
 
----
+## [1.0.0] - 2025-05-23
+### Προστέθηκε
+- Πρώτη επίσημη έκδοση της εφαρμογής MyDailyHabits.
+- Υλοποίηση βασικών λειτουργιών για την καταγραφή και παρακολούθηση καθημερινών συνηθειών.
+- Υλοποίηση εγγραφής και σύνδεσης χρήστη.
+- Ενημέρωση αρχείων τεκμηρίωσης: README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md.
 
-**Format:**  
-- `[Unreleased]` → Ongoing development.  
-- `[1.x.x]` → Version numbers following [Semantic Versioning](https://semver.org/).  
-- Use `### Added`, `### Fixed`, `### Changed`, `### Removed` to categorize changes. 
+## [0.1.0] - 2025-04-15
+### Προστέθηκε
+- Δημιουργία του αποθετηρίου και αρχική δέσμευση (commit).
+- Ρύθμιση του περιβάλλοντος ανάπτυξης με χρήση του .NET.
+- Σχεδίαση της αρχιτεκτονικής της εφαρμογής σύμφωνα με το μοντέλο Merchandize.
+- Δημιουργία βάσης δεδομένων με χρήση του Entity Framework Core.
+- Προσθήκη αρχείων τεκμηρίωσης: README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md.

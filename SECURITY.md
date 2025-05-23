@@ -1,18 +1,54 @@
-# Security Policy
+# Οδηγίες Ασφάλειας για το MyDailyHabits
 
-## Supported Versions
-We actively support the latest stable version of MyDailyHabits.
+## Εκδόσεις που υποστηρίζουμε.
+Υποστηρίζουμε ενεργά την πιο πρόσφαση έκδοση του MyDailyHabits.
 
-| Version | Supported          |
+
+| Version | Υποστήριξη          |
 |---------|------------------|
-| 1.x     | ✅ Yes          |
-| 0.x     | ❌ No (Legacy) |
+| 1.x     | ✅ Ναι          |
+| 0.x     | ❌ Όχι (Legacy) |
 
-## Reporting a Vulnerability
-If you find a security issue, **do not** report it publicly. Instead:
-1. Email us at **[your email]**.
-2. Provide a clear description and reproduction steps.
-3. We will respond within **48 hours**.
 
-## Responsible Disclosure
-We appreciate security researchers following responsible disclosure guidelines. Thank you for making MyDailyHabits safe! 🚀
+Η ασφάλεια των χρηστών μας είναι πολύ σημαντική. Αν πιστεύετε ότι έχετε ανακαλύψει κάποιο ζήτημα ασφάλειας στο **MyDailyHabits**, παρακαλούμε **μην δημιουργήσετε δημόσιο issue**. Αντίθετα, ακολουθήστε τη διαδικασία που περιγράφεται παρακάτω.
+
+## 📬 Αναφορά Ευπαθειών
+
+Αν βρείτε ευπάθεια, μπορείτε να την αναφέρετε μέσω email:
+
+**Email επικοινωνίας:** ek.antoniadis@pm.me
+
+Κατά την αναφορά, παρακαλούμε να συμπεριλάβετε:
+
+- Περιγραφή του ζητήματος
+- Οδηγίες αναπαραγωγής (αν είναι δυνατόν)
+- Τυχόν προτεινόμενη λύση ή επιδιορθώσεις
+
+Όλες οι αναφορές ευπαθειών θα αντιμετωπίζονται με εμπιστευτικότητα μέχρι να είναι διαθέσιμη μια ενημέρωση ασφαλείας.
+
+## 🧰 Τεχνικά Μέτρα Ασφάλειας
+
+Το MyDailyHabits ενσωματώνει τα παρακάτω μέτρα:
+
+- Κρυπτογράφηση κωδικών μέσω `PasswordHasher` της ASP.NET
+- Χρήση ασφαλών βιβλιοθηκών όπως:
+  - `Microsoft.AspNetCore.Identity`
+  - `Microsoft.EntityFrameworkCore.Sqlite`
+- Αποφυγή SQL injection μέσω LINQ και EF Core
+- Έλεγχος πρόσβασης με ρόλους και claims
+- Αντιμετώπιση CSRF μέσω των Razor Pages φορμών
+
+## 🔐 Ευπάθειες Τρίτων Βιβλιοθηκών
+
+Αν η ευπάθεια εντοπιστεί σε εξάρτηση τρίτου (third-party package), παρακαλούμε ενημερώστε και το αντίστοιχο έργο στο GitHub ή τον δημιουργό της βιβλιοθήκης.
+
+## 🕒 Χρονοδιάγραμμα Απόκρισης
+
+- Μέσα σε 48 ώρες: Αναγνώριση του προβλήματος
+- Μέσα σε 5 εργάσιμες ημέρες: Εκτίμηση της επίπτωσης και ένα πλάνο επιδιόρθωσης
+- Εντός 14 ημερών: Δημιουργία ενημέρωσης/patch (ανάλογα με τη σοβαρότητα)
+
+## 🙏 Ευχαριστίες
+
+Εκτιμούμε ιδιαιτέρως τη βοήθειά σας για τη διατήρηση της ασφάλειας του έργου και των χρηστών του!
+
